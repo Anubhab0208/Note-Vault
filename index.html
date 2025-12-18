@@ -1,12 +1,143 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>My First Page</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Notes Sharing Platform — Overview</title>
+
+  <!-- Tailwind CDN for quick prototyping -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Optional custom styles -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
 
-<h1>Anushka is here</h1>
-<p>This is my first project.</p>
+  <!-- Header -->
+  <header class="bg-white border-b">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 bg-blue-600 rounded flex items-center justify-center text-white font-bold">NS</div>
+        <div>
+          <h1 class="text-lg font-semibold">Notes Sharing Platform</h1>
+          <p class="text-sm text-gray-500">Community-driven notes, organized by subject and topic</p>
+        </div>
+      </div>
 
+      <nav class="flex items-center space-x-4">
+        <a href="index.html" class="text-sm text-blue-600 hover:underline">Home</a>
+        <a href="pages/vault.html" class="text-sm text-blue-600 hover:underline">Notes Vault</a>
+        <!-- Admin link intentionally omitted to keep admin page hidden from normal users -->
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="flex-1 max-w-6xl mx-auto px-4 py-10 w-full">
+    <!-- Hero / Overview -->
+    <section class="bg-white rounded shadow p-6 mb-8">
+      <div class="md:flex md:items-center md:justify-between">
+        <div>
+          <h2 class="text-2xl font-bold mb-2">Overview</h2>
+          <p class="text-gray-700 mb-4">A lightweight, client-side notes sharing platform. Anyone can upload notes (Google Drive link or name), browse subject-wise, search, paginate through the vault, and file complaints for incorrect or inappropriate uploads. Admins review complaints and manage notes from a separate admin panel.</p>
+
+          <ul class="list-disc pl-5 text-gray-700 space-y-1">
+            <li><strong>Upload</strong> notes with Sub Code, Sub Name, Topic/Module, and Drive link/name.</li>
+            <li><strong>Browse</strong> subject-wise and search across sub code, sub name, topic, and notes name.</li>
+            <li><strong>Pagination</strong> to navigate large lists of notes.</li>
+            <li><strong>Complaints</strong> allow users to request deletion; admins review and act.</li>
+            <li><strong>Storage</strong> uses Local Storage (client-side demo).</li>
+          </ul>
+        </div>
+
+        <div class="mt-6 md:mt-0 md:ml-8">
+          <a href="pages/vault.html" class="inline-block bg-blue-600 text-white px-5 py-3 rounded shadow">Open Notes Vault</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works / Quick steps -->
+    <section class="grid gap-4 md:grid-cols-3 mb-8">
+      <div class="bg-white p-4 rounded shadow">
+        <h3 class="font-semibold mb-2">1. Upload</h3>
+        <p class="text-sm text-gray-600">Open the vault and click <strong>Upload Note</strong>. Fill Sub Code, Sub Name, Topic/Module, and Notes Drive Link or Name. Uploads are anonymous and stored locally.</p>
+      </div>
+
+      <div class="bg-white p-4 rounded shadow">
+        <h3 class="font-semibold mb-2">2. Browse & Search</h3>
+        <p class="text-sm text-gray-600">Use the search box and subject filter to find notes quickly. Results are paginated for easy navigation.</p>
+      </div>
+
+      <div class="bg-white p-4 rounded shadow">
+        <h3 class="font-semibold mb-2">3. Complaints & Admin</h3>
+        <p class="text-sm text-gray-600">If a note is wrong or inappropriate, file a complaint. Admins (separate admin page) review complaints and can delete notes. Admin credentials (demo): <strong>Admin / Admin1010</strong>.</p>
+      </div>
+    </section>
+
+    <!-- Features / Benefits -->
+    <section class="bg-white p-6 rounded shadow mb-8">
+      <h3 class="text-lg font-semibold mb-3">Key features</h3>
+      <div class="grid gap-4 md:grid-cols-2">
+        <div>
+          <h4 class="font-medium">Subject-wise organization</h4>
+          <p class="text-sm text-gray-600">Notes are tagged with Sub Code and Sub Name so you can quickly filter by subject.</p>
+        </div>
+
+        <div>
+          <h4 class="font-medium">Simple uploads</h4>
+          <p class="text-sm text-gray-600">No account required to upload. Fill the popup form and submit — the note appears in the vault immediately.</p>
+        </div>
+
+        <div>
+          <h4 class="font-medium">Complaint workflow</h4>
+          <p class="text-sm text-gray-600">Users can flag notes for admin review. Complaints are stored in Local Storage for admin action.</p>
+        </div>
+
+        <div>
+          <h4 class="font-medium">Client-side demo</h4>
+          <p class="text-sm text-gray-600">All data is stored in the browser's Local Storage. For production, migrate to a backend for secure auth and persistent storage.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick links / CTA cards -->
+    <section class="grid gap-4 md:grid-cols-3 mb-12">
+      <a href="/pages/vault.html" class="block bg-white p-4 rounded shadow hover:shadow-md">
+        <h4 class="font-semibold">Open Vault</h4>
+        <p class="text-sm text-gray-600 mt-2">Browse all uploaded notes, search, paginate, and file complaints.</p>
+      </a>
+
+      <div class="bg-white p-4 rounded shadow">
+        <h4 class="font-semibold">Admin (hidden)</h4>
+        <p class="text-sm text-gray-600 mt-2">Admin page is not linked here to keep it hidden from normal users. Admin credentials (demo): <strong>Admin / Admin1010</strong>.</p>
+      </div>
+
+      <div class="bg-white p-4 rounded shadow">
+        <h4 class="font-semibold">Local Storage</h4>
+        <p class="text-sm text-gray-600 mt-2">All notes and complaints are saved locally under a storage key. Clearing browser data will remove them.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t">
+    <div class="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row md:items-center md:justify-between">
+      <div class="text-sm text-gray-600">
+        <strong>Notes Sharing Platform</strong> — built as a client-side demo. Do not store secrets or rely on client-side admin protection for production.
+      </div>
+
+      <div class="mt-3 md:mt-0 flex items-center space-x-4 text-sm">
+        <a href="/pages/vault.html" class="text-blue-600 hover:underline">Notes Vault</a>
+        <a href="#" class="text-gray-600">Privacy</a>
+        <span class="text-gray-400">|</span>
+        <span class="text-gray-500">© <span id="year"></span> Notes Sharing</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
