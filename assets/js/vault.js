@@ -150,7 +150,7 @@
             <a href="${escapeHtml(n.notesLink)}" target="_blank" rel="noopener" download class="text-sm text-gray-600">Download</a>
           </div>
           <div>
-            <button class="file-complaint text-sm text-red-600" data-id="${n.id}">Complain</button>
+            <a href="/pages/complaint.html?noteId=${encodeURIComponent(String(n.id))}" class="text-sm text-red-600">Complain</a>
           </div>
         </div>
       `;
