@@ -1,0 +1,198 @@
+/* assets/css/styles.css
+   Single dark theme only — background fixed to #0b1220.
+   Matches the provided index.html (Tailwind + Bootstrap compatible).
+*/
+
+/* ---------- Root variables (dark-only) ---------- */
+:root {
+  --bg: #0b1220;            /* requested background color */
+  --surface: #0f172a;       /* surface for cards/headers */
+  --muted: #94a3b8;         /* muted text */
+  --text: #e6eef8;          /* primary text color */
+  --brand-500: #6366f1;     /* indigo-ish brand */
+  --brand-600: #4f46e5;
+  --accent: #34d399;        /* kept for accents where needed */
+  --danger: #f87171;
+  --glass: rgba(15,23,42,0.6);
+  --card-shadow: 0 10px 30px rgba(2,6,23,0.5);
+  --border: rgba(255,255,255,0.04);
+  --header-bg: linear-gradient(180deg, rgba(15,23,42,0.95), rgba(10,15,25,0.95));
+  --header-text: var(--text);
+  --hero-text: #ffffff;
+  --focus-outline: rgba(99,102,241,0.12);
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color .25s ease, color .25s ease;
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.45;
+}
+
+/* Typography */
+h1,h2,h3,h4,h5,h6 { color: var(--text); margin: 0 0 .5rem 0; }
+p, li, span, a, small, label { color: var(--text); }
+a { color: var(--brand-500); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--brand-600); }
+.small-muted, .muted, .text-muted { color: var(--muted); }
+
+/* ---------- Header ---------- */
+.site-header {
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border);
+  color: var(--header-text);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+.site-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+  background: linear-gradient(135deg, var(--brand-600), var(--accent));
+}
+.site-title { font-size: 1.05rem; font-weight: 600; }
+.site-sub { font-size: .8rem; margin-top: -2px; color: var(--muted); }
+nav a.nav-link { opacity: .95; }
+nav a.nav-link:hover { color: var(--brand-600); }
+
+/* Hide any leftover theme toggle UI */
+#theme-toggle { display: none !important; }
+
+/* ---------- Hero (indigo -> emerald gradient) ---------- */
+.hero {
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  /* Tailwind-like gradient: from-indigo-600 to-emerald-500 */
+  background: linear-gradient(90deg, rgba(79,70,229,0.95), rgba(16,185,129,0.95));
+  color: var(--hero-text);
+  box-shadow: 0 12px 40px rgba(2,6,23,0.45);
+}
+.hero .hero-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: linear-gradient(90deg, rgba(79,70,229,0.12), rgba(16,185,129,0.06));
+}
+@media (min-width: 768px) {
+  .hero .hero-inner { grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 3rem; }
+}
+.hero h2, .hero p { color: var(--hero-text); }
+.hero p { opacity: .95; max-width: 48rem; }
+
+/* CTA buttons inside hero */
+.hero .inline-flex {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  border-radius: .75rem;
+  transition: transform .12s ease, filter .12s ease;
+}
+.hero .inline-flex.bg-white {
+  background: #ffffff;
+  color: #3730a3; /* indigo-700 */
+  padding: .5rem 1rem;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.12);
+}
+.hero .inline-flex.bg-white svg { color: #4f46e5; } /* indigo-600 */
+.hero .inline-flex.bg-white:hover { transform: translateY(-2px); }
+
+/* Secondary CTA */
+.hero .inline-flex.border {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #ffffff;
+  padding: .5rem 1rem;
+}
+.hero .inline-flex.border:hover { background: rgba(255,255,255,0.06); }
+
+/* Quick stats card inside hero */
+.hero .bg-white\/10,
+.hero .bg-white\/5,
+.hero .bg-white\/6 {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--hero-text);
+}
+
+/* ---------- Cards / Surface ---------- */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.card:hover { transform: translateY(-4px); }
+
+/* Utility surfaces */
+.bg-surface {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid var(--border);
+}
+
+/* ---------- Layout helpers ---------- */
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* ---------- Lists ---------- */
+ol, ul { padding-left: 1.25rem; }
+li { margin-bottom: .5rem; }
+
+/* ---------- Footer ---------- */
+footer a { color: var(--brand-600); }
+footer span, footer div { color: var(--muted); }
+
+/* ---------- Utility overrides (Tailwind compatibility classes used in HTML) ---------- */
+.text-slate-900, .text-slate-900 * { color: var(--text) !important; }
+.text-slate-500, .text-slate-500 * { color: var(--muted) !important; }
+.text-white, .text-white * { color: var(--hero-text) !important; }
+.text-indigo-600, .text-indigo-700 { color: var(--brand-600) !important; }
+
+/* Small helpers used in markup (Tailwind-like utilities used inline in HTML) */
+.bg-white\/10 { background-color: rgba(255,255,255,0.08) !important; }
+.bg-white\/5  { background-color: rgba(255,255,255,0.05) !important; }
+.bg-white\/6  { background-color: rgba(255,255,255,0.06) !important; }
+.border-white\/30 { border-color: rgba(255,255,255,0.3) !important; }
+.border-white\/10 { border-color: rgba(255,255,255,0.1) !important; }
+
+/* ---------- Focus outlines ---------- */
+:focus { outline: 3px solid var(--focus-outline); outline-offset: 2px; }
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { height: 10px; width: 10px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 999px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 768px) {
+  .card { padding: .75rem; }
+  .hero .hero-inner { padding: 1.25rem; }
+}
+
+/* Accessibility tweaks */
+button, .inline-flex, .nav-link { color: var(--text); }
+button[disabled] { opacity: .5; cursor: not-allowed; }
