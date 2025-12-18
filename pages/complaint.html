@@ -10,62 +10,81 @@
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  body {
-    background-color: #0f1115;
-    font-family: 'Inter', sans-serif;
-    color: #e5e5e5;
-  }
 
-  .card {
-    background-color: #161a22;
-    border: none;
-    border-radius: 14px;
-  }
+  <style>
+    :root {
+      --bg: #0f1115;
+      --card: #161a22;
+      --muted: #b0b3c1;
+      --input-border: #2a2f3a;
+      --accent: #5c7cfa;
+      --text: #e5e5e5;
+    }
 
-  .card-header h5 {
-    color: #eaf0ff;   /* more visible heading */
-    font-weight: 500;
-  }
+    html,body {
+      height: 100%;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
 
-  .form-control {
-    background-color: #0f1115;
-    border: 1px solid #2a2f3a;
-    color: #e5e5e5;
-  }
+    .card {
+      background-color: var(--card);
+      border: none;
+      border-radius: 14px;
+    }
 
-  .form-control:focus {
-    background-color: #0f1115;
-    color: #ffffff;
-    border-color: #6ea8fe;
-    box-shadow: none;
-  }
+    label {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
 
-  .btn-dark {
-    background-color: #6ea8fe;
-    border: none;
-    color: #0f1115;
-    font-weight: 500;
-  }
+    .form-control {
+      background-color: var(--bg);
+      border: 1px solid var(--input-border);
+      color: var(--text);
+    }
 
-  .btn-dark:hover {
-    background-color: #5c9cff;
-  }
+    .form-control:focus {
+      background-color: var(--bg);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: none;
+    }
 
-  label {
-    font-size: 0.9rem;
-    color: #c3c7d6;
-  }
+    .btn-dark {
+      background-color: var(--accent);
+      border: none;
+    }
 
-  .view-link {
-    color: #8da2fb;
-    font-weight: 500;
-  }
+    .btn-dark:hover {
+      background-color: #4c6ef5;
+    }
 
-  .view-link:hover {
-    color: #aab6ff;
-  }
-</style>
+    .small-muted {
+      color: #9aa0c7;
+      font-size: 0.85rem;
+    }
+
+    .note-id-field {
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #cbd5ff;
+      background: rgba(92,124,250,0.06);
+      border: 1px dashed rgba(92,124,250,0.12);
+      padding: 6px 8px;
+      border-radius: 6px;
+    }
+
+    a.view-list {
+      color: #8da2fb;
+    }
+
+    .container {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+  </style>
 </head>
 <body>
   <div class="container d-flex justify-content-center">
