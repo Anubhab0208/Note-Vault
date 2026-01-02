@@ -1,2 +1,202 @@
-hi anubhab here
-Ashif here
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Notes Sharing Platform — Overview</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Optional Bootstrap (kept for compatibility if needed) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles (single dark theme) -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <meta name="theme-color" content="#0b1220" />
+</head>
+<body class="min-h-screen antialiased transition-colors duration-300" style="background:#0b1220;color:#e6eef8;">
+
+  <!-- Header / Navbar -->
+  <header class="site-header sticky top-0 z-50 border-b" style="background:linear-gradient(180deg, rgba(15,23,42,0.95), rgba(10,15,25,0.95)); border-bottom:1px solid rgba(255,255,255,0.04);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="flex items-center gap-3">
+            <div class="site-logo w-11 h-11 rounded-lg flex items-center justify-center text-white font-extrabold shadow-lg" style="background:linear-gradient(135deg,#4f46e5,#34d399);">NS</div>
+            <div class="hidden sm:block">
+              <h1 class="site-title text-lg font-semibold" style="color:#e6eef8;">Notes Sharing</h1>
+              <p class="site-sub text-xs text-slate-400 -mt-0.5" style="color:#94a3b8;">Community notes • Subject-wise • Fast search</p>
+            </div>
+          </a>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-6">
+          <a href="index.html" class="nav-link text-sm" style="color:#e6eef8;">Home</a>
+          <a href="pages/vault.html" class="nav-link text-sm" style="color:#e6eef8;">Notes Vault</a>
+          <a href="pages/credit.html" class="nav-link text-sm" style="color:#e6eef8;">Developers info</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <!-- Theme toggle removed -->
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button id="mobile-menu-btn" aria-label="Open menu" class="p-2 rounded-md mobile-menu-btn" style="color:#e6eef8; border:1px solid rgba(255,255,255,0.04); background:transparent;">
+              <svg id="menu-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" style="color:inherit;">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+              </svg>
+              <svg id="menu-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" style="color:inherit;">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden border-t" style="border-top:1px solid rgba(255,255,255,0.04); background:rgba(255,255,255,0.02);">
+      <div class="px-4 py-3 space-y-2">
+        <a href="index.html" class="block mobile-nav py-2 rounded" style="color:#e6eef8;">Home</a>
+        <a href="pages/vault.html" class="block mobile-nav py-2 rounded" style="color:#e6eef8;">Notes Vault</a>
+        <a href="pages/credit.html" class="nav-link text-sm" style="color:#e6eef8;">Developers info</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
+
+    <!-- Hero (Tailwind gradient: indigo -> emerald; text and surfaces tuned for dark theme) -->
+    <section class="hero rounded-2xl shadow-xl overflow-hidden" style="background:linear-gradient(90deg,#4f46e5,#10b981); color:#ffffff; border-radius:18px; box-shadow:0 12px 40px rgba(2,6,23,0.45);">
+      <div class="hero-inner grid grid-cols-1 md:grid-cols-2 gap-6 p-8 md:p-12" style="background:linear-gradient(90deg, rgba(79,70,229,0.12), rgba(16,185,129,0.06));">
+        <div class="flex flex-col justify-center">
+          <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-3" style="color:#ffffff;">Share. Discover. Learn.</h2>
+          <p class="text-white/90 mb-6 max-w-xl" style="color:rgba(230,238,248,0.9);">
+            A modern, lightweight notes vault for students and educators — upload subject-wise notes, search instantly, and request admin review when needed.
+          </p>
+
+          <div class="flex flex-wrap gap-3">
+            <a href="pages/vault.html" class="inline-flex items-center gap-2 bg-white text-indigo-700 font-semibold px-4 py-2 rounded-lg shadow hover:scale-[1.01] transition" style="background:#ffffff; color:#3730a3;">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" style="color:#4f46e5;">
+                <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM2 14a6 6 0 1112 0H2z"/>
+              </svg>
+              Open Notes Vault
+            </a>
+
+            <a href="#features" class="inline-flex items-center gap-2 border border-white/30 text-white px-4 py-2 rounded-lg hover:bg-white/10 transition" style="border:1px solid rgba(255,255,255,0.3); color:#ffffff; background:transparent;">
+              How it works
+            </a>
+          </div>
+        </div>
+
+        <div class="hidden md:flex items-center justify-center">
+          <div class="w-full max-w-md bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/10" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08);">
+            <div class="text-sm text-white/90 mb-4" style="color:rgba(230,238,248,0.9);">Quick stats</div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-white/20 p-4 rounded-lg" style="background:rgba(255,255,255,0.08);">
+                <div class="text-2xl font-bold" style="color:#ffffff;">—</div>
+                <div class="text-xs text-white/80 mt-1" style="color:rgba(230,238,248,0.8);">Notes</div>
+              </div>
+              <div class="bg-white/20 p-4 rounded-lg" style="background:rgba(255,255,255,0.08);">
+                <div class="text-2xl font-bold" style="color:#ffffff;">—</div>
+                <div class="text-xs text-white/80 mt-1" style="color:rgba(230,238,248,0.8);">Subjects</div>
+              </div>
+            </div>
+            <p class="text-xs text-white/80 mt-4" style="color:rgba(230,238,248,0.8);">
+              This is a client-side demo. For production, use a backend for authentication and persistent storage.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="mt-8 grid gap-6 md:grid-cols-3">
+      <div class="card rounded-xl p-5 hover:shadow-lg transition" style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04);">
+        <div class="flex items-start gap-3">
+          <div class="p-3 rounded-lg text-indigo-200" style="color:#c7d2fe;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3-1.567 3-3.5S13.657 1 12 1 9 2.567 9 4.5 10.343 8 12 8zM6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+          </div>
+          <div>
+            <h4 class="font-semibold" style="color:#e6eef8;">Anonymous Uploads</h4>
+            <p class="text-sm text-white/80" style="color:rgba(230,238,248,0.8);">Quickly add notes with Sub Code, Sub Name, Topic, and Drive link/name — no account required.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card rounded-xl p-5 hover:shadow-lg transition" style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04);">
+        <div class="flex items-start gap-3">
+          <div class="p-3 rounded-lg text-emerald-300" style="color:#86efac;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <div>
+            <h4 class="font-semibold" style="color:#e6eef8;">Fast Search</h4>
+            <p class="text-sm text-white/80" style="color:rgba(230,238,248,0.8);">Search notes by subject, topic, or keywords and get instant results.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card rounded-xl p-5 hover:shadow-lg transition" style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04);">
+        <div class="flex items-start gap-3">
+          <div class="p-3 rounded-lg text-rose-300" style="color:#fda4af;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 1.657-1.567 3-3.5 3S5 12.657 5 11 6.567 8 8.5 8 12 9.343 12 11zM19 21v-2a4 4 0 00-4-4H9a4 4 0 00-4 4v2"/></svg>
+          </div>
+          <div>
+            <h4 class="font-semibold" style="color:#e6eef8;">Community Reviewed</h4>
+            <p class="text-sm text-white/80" style="color:rgba(230,238,248,0.8);">Users can request admin review to keep the vault accurate and helpful.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="mt-10 text-center">
+      <a href="pages/vault.html" class="inline-block bg-indigo-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:brightness-105 transition" style="background:#4f46e5; color:#ffffff;">Browse Notes Vault</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="text-sm" style="color:rgba(230,238,248,0.7);">© <span id="year"></span> Notes Sharing. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Minimal scripts: mobile menu and year -->
+  <script>
+    // Mobile menu toggle
+    (function(){
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const openIcon = document.getElementById('menu-open');
+      const closeIcon = document.getElementById('menu-close');
+
+      if (!btn || !menu) return;
+
+      btn.addEventListener('click', function(){
+        const isOpen = !menu.classList.contains('hidden');
+        if (isOpen) {
+          menu.classList.add('hidden');
+          openIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        } else {
+          menu.classList.remove('hidden');
+          openIcon.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+        }
+      });
+    })();
+
+    // Footer year
+    (function(){
+      const y = new Date().getFullYear();
+      const el = document.getElementById('year');
+      if (el) el.textContent = y;
+    })();
+  </script>
+</body>
+</html>
+
